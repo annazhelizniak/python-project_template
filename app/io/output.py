@@ -1,6 +1,6 @@
-def output_to_console():
+def output_to_console(text):
     pass
 
 
-def output_to_file(file):
+def output_to_file(text, file):
     pass
