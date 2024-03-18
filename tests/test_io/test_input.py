@@ -10,8 +10,8 @@ class TestInput(unittest.TestCase):
         self.assertTrue(len(text) > 0)
 
     def test_input_from_file_not_exist(self):
-        with self.assertRaises(FileNotFoundError):
-            input_from_file("data/not_existing_file.txt")
+        text = input_from_file("data/not_existing_file.txt")
+        self.assertIsNone(text)
 
     def test_input_from_file_builtin_empty(self):
         file_content = input_from_file("../../data/empty")
@@ -23,8 +23,8 @@ class TestInput(unittest.TestCase):
         self.assertEqual(df.shape, (4, 2))
 
     def test_input_from_file_pandas_not_exist(self):
-        with self.assertRaises(FileNotFoundError):
-            input_from_file_with_pandas("data/not_existing_file.csv")
+        df = input_from_file_with_pandas("data/not_existing_file.csv")
+        self.assertIsNone(df)
 
     def test_input_from_file_pandas_wrong_format(self):
         with self.assertRaises(pd.errors.ParserError):

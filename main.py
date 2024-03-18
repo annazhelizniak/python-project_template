@@ -1,5 +1,5 @@
 from app.io.input import input_from_console, input_from_file, input_from_file_with_pandas
-from app.io.output import output_to_console, output_to_file
+from app.io.output import output_to_console, output_to_file, output_to_file_with_pandas
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
 
     output_to_file(console_input, "data/console_input")
     output_to_file(file_input, "data/file_input")
-    output_to_file(file_input_csv, "data/file_input_csv")
+    output_to_file_with_pandas(file_input_csv, "data/file_input_csv.csv")
 
 
 if __name__ == "__main__":

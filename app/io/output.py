@@ -17,4 +17,16 @@ def output_to_file(text, file):
         file (str): path to the file where to write text
     """
     with open(file, 'w') as f:
-        f.write(str(text))
+        f.write(text)
+
+
+def output_to_file_with_pandas(df, file):
+    """
+    Writing DataFrame to file using pandas
+
+    Args:
+        df (DataFrame): value to be written
+        file (str): path to the file where to write text
+    """
+    df.to_csv(file, index=False)
+

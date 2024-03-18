@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 
 
@@ -19,11 +20,13 @@ def input_from_file(file):
         file (str): path to the file to read
 
     Returns:
-        str. The content of the file.
+        str. The content of the file if file exists, None otherwise.
     """
-    with open(file, 'r') as f:
-        content = f.read()
-    return content
+    if os.path.exists(file):
+        with open(file, 'r') as f:
+            content = f.read()
+        return content
+    return None
 
 
 def input_from_file_with_pandas(file):
@@ -34,6 +37,8 @@ def input_from_file_with_pandas(file):
         file (str): path to the file to read
 
     Returns:
-        pandas.DataFrame. The content of the file as DataFrame object.
+        pandas.DataFrame. The content of the file as DataFrame object if file exists, None otherwise.
     """
-    return pd.read_csv(file)
+    if os.path.exists(file):
+        return pd.read_csv(file)
+    return None
